@@ -15,7 +15,7 @@ describe('SimpleDatatableComponent', () => {
     fixture = TestBed.createComponent(SimpleDatatableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }); 
 
   it('should create', () => {
     expect(component).toBeTruthy();

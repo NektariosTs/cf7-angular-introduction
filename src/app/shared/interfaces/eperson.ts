@@ -23,37 +23,37 @@ export const ManyPerson: EPerson[] = [
         givenName: "Austin",
         surName: "Lomen",
         email: "alomen1@shareasale.com",
-        age: "2",
+        age: "3",
         education: "Some college, no degree"
       }, {
         givenName: "Austin",
         surName: "Lomen",
         email: "alomen1@shareasale.com",
-        age: "2",
+        age: "32",
         education: "Some college, no degree"
       }, {
         givenName: "Austin",
         surName: "Lomen",
         email: "alomen1@shareasale.com",
-        age: "2",
+        age: "31",
         education: "Some college, no degree"
       }, {
         givenName: "Austin",
         surName: "Lomen",
         email: "alomen1@shareasale.com",
-        age: "2",
+        age: "30",
         education: "Some college, no degree"
       }, {
         givenName: "Austin",
         surName: "Lomen",
         email: "alomen1@shareasale.com",
-        age: "2",
+        age: "56",
         education: "Some college, no degree"
       }, {
         givenName: "Austin",
         surName: "Lomen",
         email: "alomen1@shareasale.com",
-        age: "2",
+        age: "21",
         education: "Some college, no degree"
       }, {
         givenName: "Austin",
