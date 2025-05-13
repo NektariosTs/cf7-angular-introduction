@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -24,6 +24,10 @@ import { EPerson } from 'src/app/shared/interfaces/eperson';
   styleUrl: './eperson-reactive-form.component.css',
 })
 export class EpersonReactiveFormComponent {
+  @Output() person = new EventEmitter<EPerson>();
+
+
+
   form = new FormGroup({
     givenName: new FormControl('', Validators.required),
     surName: new FormControl('', Validators.required),
@@ -34,23 +38,62 @@ export class EpersonReactiveFormComponent {
       Validators.max(100),
     ]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    education: new FormControl('', Validators.required),
+    education: new FormControl('', Validators.required)
   });
 
-  onSubmit(data: any) {
-    console.log('Data', data);
-    console.log(this.form);
-    console.log("givenName>>", this.form.controls['givenName'].value)
-    this.form.controls["surName"].setValue("Papakis");
+  // form = new FormGroup<{             <!--deuteros tropos ulopoihshs--!>
+  //   givenName: FormControl<string>;
+  //   surName: FormControl<string>;
+  //   email: FormControl<string>;
+  //   age: FormControl<number>;
+  //   education: FormControl<string>;
+  // }>({
+  //   givenName: new FormControl('', {nonNullable: true, validators: Validators.required}),
+  //   surName: new FormControl('', {nonNullable: true, validators: Validators.required}),
+  //   age: new FormControl(18, {
+  //     nonNullable: true,
+  //     validators:[
+  //       Validators.required,
+  //       Validators.min(18),
+  //       Validators.max(100)
+  //     ]}),
+  //   email: new FormControl('', {
+  //     nonNullable: true,
+  //     validators: [Validators.required, Validators.email],
+  //   }),
+  //   education: new FormControl('', {
+  //     nonNullable: true,
+  //     validators: Validators.required,
+  //   }),
+  // });
+
+  onSubmit() {
+    if (this.form.valid) {
+      console.log(this.form.value);
+      const person: EPerson = {
+        givenName: this.form.value.givenName ?? '', //ean einai undifined vale mou keno (??)
+        surName: this.form.value.surName ?? '',
+        age: String(this.form.value.age) ?? '',
+        email: this.form.value.email ?? '',
+        education: this.form.value.education ?? '',
+      }
+
+      this.person.emit(person)
+      this.form.reset()
+    }
+    // console.log('Data', data);
+    // console.log(this.form);
+    // console.log("givenName>>", this.form.controls['givenName'].value)
+    // this.form.controls["surName"].setValue("Papakis");
   }
 
   onSetValue() {
     this.form.setValue({
-      givenName: "Kostas",
-      surName: "lalakis",
+      givenName: 'Kostas',
+      surName: 'lalakis',
       age: 39,
-      email: "lalakis@aueb.gr",
-      education: "Associates degree"
-    })
+      email: 'lalakis@aueb.gr',
+      education: 'Associates degree',
+    });
   }
 }
