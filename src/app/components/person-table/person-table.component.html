@@ -1,3 +1,6 @@
+@if (!personInput) {
+  <div class="alert alert-danger text-center">No Person Details</div>
+} @else {
 <div>
   <!-- <table class="table tablebordered w-50">
     <caption>
@@ -27,22 +30,28 @@
     </caption>
     <tr>
       <td class="fw-semibold text-end">First Name</td>
-      <td class="ps-2">{{ personInput?.givenName }}</td>
+      <td class="ps-2">{{ personInput!.givenName }}</td>
       <!-- 1 -->
     </tr>
     <tr>
       <td class="fw-semibold text-end">Last Name</td>
-      <td class="ps-2">{{ personInput?.surName }}</td>
+      <td class="ps-2">{{ personInput!.surName }}</td>
     </tr>
     <tr>
       <td class="fw-semibold text-end">Age</td>
-      <td class="ps-2">{{ personInput?.age }}</td>
+      <td class="ps-2">{{ personInput!.age }}</td>
     </tr>
     <tr>
       <td class="fw-semibold text-end">Email</td>
-      <td class="ps-2">{{ personInput?.email }}</td>
+      <td class="ps-2">{{ personInput!.email }}</td>
     </tr>
-    @if (isPerson()) {
+    <tr>
+      <td class="fw-semibold text-end">
+        {{ (isPerson() && "Address") || "Education" }}
+      </td>
+      <td class="ps-2">{{ addressOrEducation }}</td>
+    </tr>
+    <!-- @if (isPerson()) {
       <tr>
         <td class="fw-semibold text-end">Address</td>
         <td class="ps-2">{{ addressOrEducation }}</td>
@@ -53,9 +62,11 @@
         <td class="fw-semibold text-end">Education</td>
         <td class="ps-2">{{ addressOrEducation }}</td>
       </tr>
-    }
+    } -->
   </table>
 </div>
+}
+
 
 <!-- 1 -->
 <!--? = an fereis kati pisw deikse mou to kati alliws undifinded epeidh exoume valei sto interface h na pernei ta pedia tou personInput h undifend-->

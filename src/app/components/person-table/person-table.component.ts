@@ -14,12 +14,12 @@ export class PersonTableComponent {
   name = 'Thanasis';
   addressOrEducation: string = ' ';
 
-  person = {
-    givenName: ' Thanasis',
-    surName: 'Androutsos',
-    age: 20,
-    email: 'thanasis@aueb.gr',
-  };
+  // person = {
+  //   givenName: ' Thanasis',
+  //   surName: 'Androutsos',
+  //   age: 20,
+  //   email: 'thanasis@aueb.gr',
+  // };
 
   isPerson(): boolean {
     if (this.personInput && 'address' in this.personInput) {
