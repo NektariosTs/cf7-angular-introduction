@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { EPerson } from 'src/app/shared/interfaces/eperson';
 
 @Component({
   selector: 'app-eperson-reactive-form',
@@ -35,4 +36,21 @@ export class EpersonReactiveFormComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     education: new FormControl('', Validators.required),
   });
+
+  onSubmit(data: any) {
+    console.log('Data', data);
+    console.log(this.form);
+    console.log("givenName>>", this.form.controls['givenName'].value)
+    this.form.controls["surName"].setValue("Papakis");
+  }
+
+  onSetValue() {
+    this.form.setValue({
+      givenName: "Kostas",
+      surName: "lalakis",
+      age: 39,
+      email: "lalakis@aueb.gr",
+      education: "Associates degree"
+    })
+  }
 }
