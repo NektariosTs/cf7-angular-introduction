@@ -100,13 +100,13 @@ export class UserRegistrationComponent {
       console.log('email', email);
       this.userService.check_duplicate_email(email).subscribe({
         next: (response) => {
-          console.log(response);
+          console.log("Email OK", response);
           this.form.get('email')?.setErrors(null);
         },
         error: (response) => {
           console.log(response);
           const message = response.data;
-          console.log(message);
+          console.log("Email not OK", message);
           this.form.get('email')?.setErrors({ duplicateEmail: true });
         },
       });
